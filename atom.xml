@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jackchengd.github.io/"/>
-  <updated>2020-03-02T13:42:24.933Z</updated>
+  <updated>2020-03-17T07:44:29.207Z</updated>
   <id>https://jackchengd.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用pm2守护解决nuxt部署、express部署</title>
+    <link href="https://jackchengd.github.io/2020/03/17/pm2-deplay/"/>
+    <id>https://jackchengd.github.io/2020/03/17/pm2-deplay/</id>
+    <published>2020-03-17T07:09:07.000Z</published>
+    <updated>2020-03-17T07:44:29.207Z</updated>
+    
+    <content type="html"><![CDATA[<p>上一篇文章，nuxt部署感觉出现了问题，发现我的部署只是表明部署，不是真正的部署，为了解决这个问题写了这文章</p><a id="more"></a><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>上一篇文章，nuxt部署感觉出现了问题，发现我的部署只是表明部署，不是真正的部署，为了解决这个问题写了这文章</p><h2 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h2><h3 id="安装pm2"><a href="#安装pm2" class="headerlink" title="安装pm2"></a>安装pm2</h3><blockquote><p>前面我们已经安装过node、nginx，在这我就不说了，可以看看我的上一篇文章<br>全局安装pm2</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g pm2</span><br></pre></td></tr></table></figure><blockquote><p>pm2的一些命令详情<br>pm2 ls # 查看当前守护情况<br>pm2 start all  # 启动所有应用<br>pm2 restart all  # 重启所有应用<br>pm2 stop all # 停止所有的应用程序<br>pm2 delete all # 关闭并删除所有应用<br>pm2 logs # 控制台显示所有日志<br>pm2 start 0  # 启动 id为 0的指定应用程序<br>pm2 restart 0  # 重启 id为 0的指定应用程序<br>pm2 stop 0 # 停止 id为 0的指定应用程序<br>pm2 delete 0 # 删除 id为 0的指定应用程序<br>pm2 logs 0 # 控制台显示编号为0的日志<br>pm2 show 0  # 查看执行编号为0的进程<br>pm2 monit jsyfShopNuxt # 监控名称为jsyfShopNuxt的进程</p></blockquote><h2 id="nuxt部署"><a href="#nuxt部署" class="headerlink" title="nuxt部署"></a>nuxt部署</h2><blockquote><p>只需要把项目放入远程服务器(阿里云、腾讯云)你的指定位置，文件（除node_modules）不需要放入<br>进入到你的指定位置<br>npm install 安装依赖<br>pm2 start npm –name “nuxt” – run dev<br>通过pm2 ls就可以看到pm2守护情况，这时候浏览器就可以访问了<br>注意：服务器需要开启对应的端口、run dev是你项目的运行命令</p></blockquote><h2 id="express部署"><a href="#express部署" class="headerlink" title="express部署"></a>express部署</h2><blockquote><p>只需要把项目放入远程服务器(阿里云、腾讯云)你的指定位置，文件（除node_modules）不需要放入<br>进入到你的指定位置<br>npm install 安装依赖<br>pm2 start bin/www即可<br>通过pm2 ls就可以看到pm2守护情况，这时候浏览器就可以访问了<br>注意：服务器需要开启对应的端口、bin/www是你的运行文件</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上一篇文章，nuxt部署感觉出现了问题，发现我的部署只是表明部署，不是真正的部署，为了解决这个问题写了这文章&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>如何使用CentOS7.3从0开始安装nginx并部署vue、nuxt项目</title>
