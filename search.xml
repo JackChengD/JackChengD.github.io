@@ -3,7 +3,7 @@
   <entry>
     <title>前端如何正常显示.md</title>
     <url>/2020/03/23/md-html/</url>
-    <content><![CDATA[<p>最近在搭建自己的博客时，想着如何在html显示.md的文件使文章就可以直接用.md的格式来写，这样方便很多</p>
+    <content><![CDATA[<p>最近在搭建自己的博客时，想着如何在html显示.md的文件使文章可以直接用.md的格式来写，这样方便很多</p>
 <a id="more"></a>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在搭建自己的博客时，想着如何在html显示.md的文件使文章就可以直接用.md的格式来写，这样方便很多</p>
 <h2 id="引入将-md转成html的库"><a href="#引入将-md转成html的库" class="headerlink" title="引入将.md转成html的库"></a>引入将.md转成html的库</h2><h3 id="markedjs"><a href="#markedjs" class="headerlink" title="markedjs"></a>markedjs</h3><blockquote>
@@ -17,7 +17,7 @@
 <blockquote>
 <p>使用</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> marked = <span class="built_in">require</span>(<span class="string">"marked"</span>);</span><br><span class="line">marked.setOptions(&#123;</span><br><span class="line">   renderer: <span class="keyword">new</span> marked.Renderer(),</span><br><span class="line">   gfm: <span class="literal">true</span>,</span><br><span class="line">   tables: <span class="literal">true</span>,</span><br><span class="line">   breaks: <span class="literal">false</span>,</span><br><span class="line">   pedantic: <span class="literal">false</span>,</span><br><span class="line">   sanitize: <span class="literal">false</span>,</span><br><span class="line">   smartLists: <span class="literal">true</span>,</span><br><span class="line">   smartypants: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"> <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>).innerHTML =</span><br><span class="line">   marked(<span class="string">'# Marked in the browser\n\nRendered by **marked**.'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> marked = <span class="built_in">require</span>(<span class="string">"marked"</span>);</span><br><span class="line">marked.setOptions(&#123;</span><br><span class="line">   renderer: <span class="keyword">new</span> marked.Renderer(),</span><br><span class="line">   gfm: <span class="literal">true</span>,</span><br><span class="line">   tables: <span class="literal">true</span>,</span><br><span class="line">   breaks: <span class="literal">false</span>,</span><br><span class="line">   pedantic: <span class="literal">false</span>,</span><br><span class="line">   sanitize: <span class="literal">false</span>,</span><br><span class="line">   smartLists: <span class="literal">true</span>,</span><br><span class="line">   smartypants: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"> <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>).innerHTML = marked(<span class="string">'# Marked in the browser\n\nRendered by **marked**.'</span>);</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这时候就可以在html上正常看到.md转成html，可是它却没有.md的样式，这是需要我们自己引入的</p>
 </blockquote>
@@ -30,8 +30,8 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123; <span class="attr">test</span>: <span class="regexp">/\.md$/</span>, <span class="attr">use</span>: [ &#123; <span class="attr">loader</span>: <span class="string">'html-loader'</span> &#125;, &#123; <span class="attr">loader</span>: <span class="string">'markdown-loader'</span>, <span class="attr">options</span>: &#123;&#125; &#125; ] &#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="引入将-md的样式"><a href="#引入将-md的样式" class="headerlink" title="引入将.md的样式"></a>引入将.md的样式</h2><blockquote>
-<p>我们这采用github-markdown-css<br>github: <a href="https://github.com/sindresorhus/github-markdown-css" target="_blank" rel="noopener">https://github.com/sindresorhus/github-markdown-css</a><br>安装npm引入</p>
+<h2 id="引入-md的样式"><a href="#引入-md的样式" class="headerlink" title="引入.md的样式"></a>引入.md的样式</h2><blockquote>
+<p>这里采用github-markdown-css，当然你也可以选择你自己喜欢的<br>github: <a href="https://github.com/sindresorhus/github-markdown-css" target="_blank" rel="noopener">https://github.com/sindresorhus/github-markdown-css</a><br>安装npm引入</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install github-markdown-css --save</span><br></pre></td></tr></table></figure>
 
@@ -39,7 +39,7 @@
 <p>使用</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'github-markdown-css'</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"markdown-body"</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"markdown-body"</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
 <p>只需要将.md转成html再引相应的样式，最后显示即可</p>
