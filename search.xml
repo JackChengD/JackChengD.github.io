@@ -26,9 +26,9 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install html-loader、markdown-loader --save</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>修改webpack配置，在rules添加以下代码</p>
+<p>修改webpack配置，在rules添加以下代码，否则编译通不过</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123; <span class="attr">test</span>: <span class="regexp">/\.md$/</span>, <span class="attr">use</span>: [ &#123; <span class="attr">loader</span>: <span class="string">'html-loader'</span> &#125;, &#123; <span class="attr">loader</span>: <span class="string">'markdown-loader'</span>, <span class="attr">options</span>: &#123;&#125; &#125; ] &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line">   test: <span class="regexp">/\.md$/</span>,</span><br><span class="line">   use: [ </span><br><span class="line">      &#123; <span class="attr">loader</span>: <span class="string">'html-loader'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">loader</span>: <span class="string">'markdown-loader'</span>, <span class="attr">options</span>: &#123;&#125;&#125; </span><br><span class="line">   ]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">   test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">   include: [<span class="regexp">/marked/</span>],</span><br><span class="line">   use: [</span><br><span class="line">      <span class="string">'babel-loader'</span>,</span><br><span class="line">   ]   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="引入-md的样式"><a href="#引入-md的样式" class="headerlink" title="引入.md的样式"></a>引入.md的样式</h2><blockquote>
 <p>这里采用github-markdown-css，当然你也可以选择你自己喜欢的<br>github: <a href="https://github.com/sindresorhus/github-markdown-css" target="_blank" rel="noopener">https://github.com/sindresorhus/github-markdown-css</a><br>安装npm引入</p>
