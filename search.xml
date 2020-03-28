@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>jenkins使用pm2部署express项目</title>
+    <url>/2020/03/28/jenkins-pm2/</url>
+    <content><![CDATA[<p>承接我上一篇文章(jenkins部署vue项目)，使用pm2部署，其实也就是改个shell命令再安装下pm2</p>
+<a id="more"></a>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>承接我上一篇文章(jenkins部署vue项目)，使用pm2部署，其实也就是改个shell命令再安装下pm2</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="安装pm2"><a href="#安装pm2" class="headerlink" title="安装pm2"></a>安装pm2</h3><blockquote>
+<p>首先服务器需要安装pm2</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install pm2 -g</span><br></pre></td></tr></table></figure>
+
+<h3 id="构建express"><a href="#构建express" class="headerlink" title="构建express"></a>构建express</h3><blockquote>
+<p>构建和上一篇文章是一样的，只需要修改shell命令即可，可使用以下命令</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &#39;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;check ENV&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#39; </span><br><span class="line">whoami</span><br><span class="line">which npm</span><br><span class="line">#npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br><span class="line">cnpm -v</span><br><span class="line"></span><br><span class="line">echo &#39;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;begin build&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#39;</span><br><span class="line">cd $WORKSPACE</span><br><span class="line">#执行命令安装</span><br><span class="line">cnpm install</span><br><span class="line">pm2 start bin&#x2F;www</span><br><span class="line">echo &#39;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;end build&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#39;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这时候基本上就差不多了，你可以看到pm2已经守护了进程www，浏览器也可以访问该url</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p>jenkins环境搭建成功后，后面部署就是一件简单的事情了，只需要构建修改下shell命令就差不多了<br>环境的搭建才是比较累人的，后面就自动化部署就非常香了，代码提交到github上，点一下部署就行，很香</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>jenkins部署vue项目</title>
     <url>/2020/03/27/jenkins-vue/</url>
     <content><![CDATA[<p>最近把个人网站和博客都搭建的差不多，也成功放到nginx服务器，接下来要折腾的就是想弄个自动化部署jenkins，这个操作还是有点点累的，查阅了部分文章，终于成功了。这篇文章，我感觉别人写的比我好，这里我就引入别人的文章最为参考吧</p>
@@ -34,9 +58,6 @@
 <p>jenkins部署vue大致过程如上，如有问题还可以继续百度<br>以上过程应该可以避免90%以上的问题，哈哈哈哈哈哈~</p>
 </blockquote>
 ]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
   </entry>
   <entry>
     <title>前端如何正常显示.md</title>
