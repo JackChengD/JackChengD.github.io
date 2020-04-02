@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jackchengd.github.io/"/>
-  <updated>2020-03-28T06:01:09.354Z</updated>
+  <updated>2020-04-02T15:32:17.540Z</updated>
   <id>https://jackchengd.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux的基本命令</title>
+    <link href="https://jackchengd.github.io/2020/04/02/linux-command/"/>
+    <id>https://jackchengd.github.io/2020/04/02/linux-command/</id>
+    <published>2020-04-02T14:11:31.000Z</published>
+    <updated>2020-04-02T15:32:17.540Z</updated>
+    
+    <content type="html"><![CDATA[<p>Linux是最知名和最常用的开源操作系统。作为一个操作系统，Linux是一个软件，位于计算机上的所有其他软件的下面，从这些程序接收请求并将这些请求转发到计算机硬件</p><a id="more"></a><p>我们使用术语“Linux”来指代Linux内核，也是通常与Linux内核捆绑在一起的程序，工具和服务，以提供所有必需的组件全功能操 作系统。有些人，特别是自由软件基金会的成员，将此集合称为GNU / Linux，因为包括的许多工具都是GNU组件。但是并不是所有的Linux安装都使用GNU组件作为其操作系统的一部分。例如，Android使用 Linux内核，但对GNU工具依赖性很低。这个介绍文章部分参考于《linux就该这么学》，希望对于大家的理解有帮助</p><p>那么我们就知道了，通常我们说的“linux”其实是指linux内核，而linux操作系统其实是GNU/linux（GNU/linux是指 ，linux内核+GNU组织的软件）</p><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>1.date——显示日期  </p><blockquote><p>date</p></blockquote><p>2.cal——显示日历 </p><blockquote><p>cal</p></blockquote><p>3.uname——查看系统  </p><blockquote><p>uname</p></blockquote><p>4.uname -r——查看版本  </p><blockquote><p>uname -r</p></blockquote><p>5.cd——更换目录  </p><blockquote><p>切换到根目录：cd /<br>切换到上一级目录：cd ..<br>切换到当前用户家目录： cd  </p></blockquote><p>6.pwd——显示当前所在目录  </p><blockquote><p>pwd  </p></blockquote><p>7.mkdir——建立新目录  </p><blockquote><p>普通用法：mkdir abc<br>建多层次目录： mkdir -p a/b/c<br>mkdir  x/a x/b x/c</p></blockquote><p>8.rmdir——删除空的目录  </p><blockquote><p>rmdir a</p></blockquote><p>9.rm -rf——删除文件、目录  </p><blockquote><p>rm -rf -a</p></blockquote><p>10.ls——显示文件、目录  </p><blockquote><p>查看隐藏文件：ls -a   </p></blockquote><p>11.cp——复制文件或目录  </p><blockquote><p>拷贝文件：cp a.md b.md<br>拷贝文件夹 cp -r a a-temp</p></blockquote><p>12.rm—–移除文件或目录  </p><blockquote><p>rm install.log 普通删除文件<br>rm -f install.log 强制删除文件<br>rm -r -f abc 删除文件夹<br>rm -rf a 删除文件夹 -r和-f两个短参数可以合到一起  </p></blockquote><p>13.cat—–显示全部文档内容 </p><blockquote><p>cat nginx.conf</p></blockquote><p>14.less——分屏显示，按b查看下一屏</p><blockquote><p>less nginx.conf</p></blockquote><p>15.head——显示前十行  </p><blockquote><p>head nginx.conf</p></blockquote><p>16.tail——显示后十行   </p><blockquote><p>tail nginx.conf</p></blockquote><p>17.whereis——寻找特定文件</p><blockquote><p>whereis nginx.conf    </p></blockquote><p>18.find——寻找特定文件 </p><blockquote><p>find / -name ‘nginx.conf’</p></blockquote><p>19.stat——显示文件的元数据   </p><blockquote><p>stat a.md</p></blockquote><p>20.vi——编辑器  </p><blockquote><p>vi nginx.conf</p></blockquote><p>21.clear——清屏  </p><blockquote><p>clear  </p></blockquote><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote><p>作为一个入门运维的小前端，简单的梳理并掌握这些linux命令应该就差不多了吧，其他比较不常用的可以再谷歌或百度一波</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Linux是最知名和最常用的开源操作系统。作为一个操作系统，Linux是一个软件，位于计算机上的所有其他软件的下面，从这些程序接收请求并将这些请求转发到计算机硬件&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>jenkins使用pm2部署express项目</title>
