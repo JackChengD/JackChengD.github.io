@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>webpack配置--解决vue-router按需引入路径出错问题</title>
+    <url>/2020/05/09/webpack-vue-router/</url>
+    <content><![CDATA[<p>使用nginx部署vue多页项目后，发现vue-router按需引入路径出错，在当前路径下找不到？</p>
+<a id="more"></a>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><blockquote>
+<p>本人使用nginx部署多页项目，即使dist里面有多文件（一个文件相当于一个页面），nginx.conf可以配置如下  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location &#x2F; &#123;</span><br><span class="line">      root &#x2F;root&#x2F;personweb&#x2F;dist;</span><br><span class="line">      index index.html index.htm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果没有采用vue-router按需引入，不会报错。<br>而采用按需引入，则一般的结果是你会发现线上的地址居然出错了？  </p>
+</blockquote>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><blockquote>
+<p>修改webpack.build.config.js的如下配置就可以  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">  chunkFilename: &#39;index&#x2F;[name].[chunkhash:8].js&#39;,</span><br><span class="line">  path: path.resolve(__dirname, &#39;..&#x2F;dist&#39;),</span><br><span class="line">  filename: &#96;[name].[chunkhash:8].js&#96;,</span><br><span class="line">  publicPath: &#39;&#x2F;&#39;&#x2F;&#x2F;如果打包后出现引入报错问题，一般都是这个</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>当你没有配置<strong>publicPath: ‘/‘</strong>时，线上链接会从你页面下的路径去找按需引入的路由，可是路由被打包到根目录dist的index文件下，所以会出现找不到的情况。这时候将查找的路径改为从根路径开始即可。  </p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p>哈哈哈哈，其实也没啥好总结的就是改改webpack里面的配置就好，看看报错的原因进行分析。  </p>
+</blockquote>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><blockquote>
+<p>最近准备考研<br>目前只把高数、线代基础学了，刷着汤老师的1800题<br>现在的学习计划是：白天考研学习、晚上前端学习<br>毕业后去北京学点东西、长点见识<br>考个北京学校的在研   </p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux的基本命令</title>
     <url>/2020/04/02/linux-command/</url>
     <content><![CDATA[<p>Linux是最知名和最常用的开源操作系统。作为一个操作系统，Linux是一个软件，位于计算机上的所有其他软件的下面，从这些程序接收请求并将这些请求转发到计算机硬件</p>
