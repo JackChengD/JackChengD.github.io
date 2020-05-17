@@ -75,6 +75,30 @@
 <h3 id="CDN引入"><a href="#CDN引入" class="headerlink" title="CDN引入"></a>CDN引入</h3><blockquote>
 <p>CDN（内容分发网络）的主要工作是把我们需要被分发的内容发到世界各地的各个节点上，让世界各地的人都可以在距离最近，压力最小的网络节点拿到想要拿到的内容，减少网络传输距离从而达到加速的目的（需要提供资源绝对地址告诉CDN厂商，让厂商去智能拉取）<br>CDN能够缓存一般的CSS、js、图片等静态资源文件，而这些文件的访问频率很高，将其缓存在CDN可以极大的提高网站的访问速度<br>当CDN服务器中缓存有用户请求的数据时，就可以从CDN直接返回给客户端浏览器，最短路径的返回响应，加快用户的访问速度，减少数据中心的负载压力  </p>
 </blockquote>
+<h3 id="webpack使用HappyPack来加速代码构建"><a href="#webpack使用HappyPack来加速代码构建" class="headerlink" title="webpack使用HappyPack来加速代码构建"></a>webpack使用HappyPack来加速代码构建</h3><p>1.说明  </p>
+<blockquote>
+<p>HappyPack将原有的webpack对loader的执行过程，从单一进程的形式扩展多进程模式，从而加快代码的构建。<br>注：Js是单线程，所以没办法使用多线程，要想发挥多核CPU的能力，只能通过多进程来实现，恰好HappyPack发挥了这一作用   </p>
+</blockquote>
+<p>2.使用</p>
+<blockquote>
+<p>引入HappyPack   </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install happypack --save</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>修改webpack.base.config.js，这里只介绍bable做优化</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> HappyPack = <span class="built_in">require</span>(<span class="string">'happypack'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// loader处修改为</span></span><br><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">      test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">      use: [<span class="string">'happypack/loader?id=babel'</span>],</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> HappyPack(&#123;</span><br><span class="line">    <span class="comment">// id 标识符，要和 rules 中指定的 id 对应起来</span></span><br><span class="line">    id: <span class="string">'babel'</span>,</span><br><span class="line">    <span class="comment">// 需要使用的 loader，用法和 rules 中 Loader 配置一样</span></span><br><span class="line">    <span class="comment">// 可以直接是字符串，也可以是对象形式</span></span><br><span class="line">    loaders: [<span class="string">'babel-loader?cacheDirectory'</span>]</span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>4.成功</p>
+<blockquote>
+<p>HappyPack配置成功后运行，会在控制台打印如下：  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Happy[babel]: Version: 5.0.1. Threads: 3</span><br><span class="line">Happy[babel]: All set; signaling webpack to proceed.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>具体配置也可以参考：<a href="https://www.awesomes.cn/repo/amireh/happypack" target="_blank" rel="noopener">https://www.awesomes.cn/repo/amireh/happypack</a>   </p>
+</blockquote>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
 <p>多实战<br>多遇问题<br>解决问题<br>做个记录  </p>
 </blockquote>
