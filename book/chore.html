@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>重构改善既有代码的设计 | Jack</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="describe myself">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.9902a944.js" as="script"><link rel="preload" href="/assets/js/2.eab5a6f5.js" as="script"><link rel="preload" href="/assets/js/21.43cb69a6.js" as="script"><link rel="prefetch" href="/assets/js/10.f90fcd79.js"><link rel="prefetch" href="/assets/js/11.ca932ac6.js"><link rel="prefetch" href="/assets/js/12.382eb5a8.js"><link rel="prefetch" href="/assets/js/13.f411aa48.js"><link rel="prefetch" href="/assets/js/14.79017e98.js"><link rel="prefetch" href="/assets/js/15.518bba56.js"><link rel="prefetch" href="/assets/js/16.c4f0feca.js"><link rel="prefetch" href="/assets/js/17.e2713cf6.js"><link rel="prefetch" href="/assets/js/18.9209155d.js"><link rel="prefetch" href="/assets/js/19.11b3dcb6.js"><link rel="prefetch" href="/assets/js/20.a04a6877.js"><link rel="prefetch" href="/assets/js/22.e77e1498.js"><link rel="prefetch" href="/assets/js/23.d085bb29.js"><link rel="prefetch" href="/assets/js/24.692d2538.js"><link rel="prefetch" href="/assets/js/25.d6a296a6.js"><link rel="prefetch" href="/assets/js/26.c874dfa9.js"><link rel="prefetch" href="/assets/js/27.1accc0df.js"><link rel="prefetch" href="/assets/js/3.6898229d.js"><link rel="prefetch" href="/assets/js/4.e05c873c.js"><link rel="prefetch" href="/assets/js/5.f3e6ed41.js"><link rel="prefetch" href="/assets/js/6.498ab014.js"><link rel="prefetch" href="/assets/js/7.9da4f206.js"><link rel="prefetch" href="/assets/js/8.cc5610e5.js"><link rel="prefetch" href="/assets/js/9.f5f3c602.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Jack</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/work/" class="nav-link">
+  工作
+</a></div><div class="nav-item"><a href="/book/" class="nav-link router-link-active">
+  书籍
+</a></div><div class="nav-item"><a href="/blog/" class="nav-link">
+  文章
+</a></div><div class="nav-item"><a href="/leetcode/" class="nav-link">
+  leetcode
+</a></div><div class="nav-item"><a href="/" class="nav-link">
+  关于作者
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/work/" class="nav-link">
+  工作
+</a></div><div class="nav-item"><a href="/book/" class="nav-link router-link-active">
+  书籍
+</a></div><div class="nav-item"><a href="/blog/" class="nav-link">
+  文章
+</a></div><div class="nav-item"><a href="/leetcode/" class="nav-link">
+  leetcode
+</a></div><div class="nav-item"><a href="/" class="nav-link">
+  关于作者
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/book" class="sidebar-heading clickable router-link-active open"><span>书籍</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/book/chore.html" aria-current="page" class="active sidebar-link">重构改善既有代码的设计</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/book/chore.html#什么是重构" class="sidebar-link">什么是重构</a></li><li class="sidebar-sub-header"><a href="/book/chore.html#为什么要重构" class="sidebar-link">为什么要重构</a></li><li class="sidebar-sub-header"><a href="/book/chore.html#什么时候要重构" class="sidebar-link">什么时候要重构</a></li><li class="sidebar-sub-header"><a href="/book/chore.html#重构得挑战" class="sidebar-link">重构得挑战</a></li><li class="sidebar-sub-header"><a href="/book/chore.html#代码的怪味道" class="sidebar-link">代码的怪味道</a></li><li class="sidebar-sub-header"><a href="/book/chore.html#重构手法" class="sidebar-link">重构手法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/book/chore.html#提炼函数-extract-function" class="sidebar-link">提炼函数(Extract Function)</a></li><li class="sidebar-sub-header"><a href="/book/chore.html#以函数调用取代内联代码-replace-inline-code-with-function-call" class="sidebar-link">以函数调用取代内联代码(Replace Inline Code with Function Call)</a></li></ul></li><li class="sidebar-sub-header"><a href="/book/chore.html#好句子" class="sidebar-link">好句子</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="重构改善既有代码的设计"><a href="#重构改善既有代码的设计" class="header-anchor">#</a> 重构改善既有代码的设计</h1> <h2 id="什么是重构"><a href="#什么是重构" class="header-anchor">#</a> 什么是重构</h2> <p>在不改变代码外在行为的提前下，对代码做出修改，以改进程序的内部结构</p> <h2 id="为什么要重构"><a href="#为什么要重构" class="header-anchor">#</a> 为什么要重构</h2> <p>1、重构改进软件的设计；<br>
+2、重构使软件更容易理解；<br>
+3、重构帮助找到bug；<br>
+4、重构提高编程速度。</p> <h2 id="什么时候要重构"><a href="#什么时候要重构" class="header-anchor">#</a> 什么时候要重构</h2> <p>1、预备性重构：让添加新功能更容易；<br>
+2、帮助理解的重构：使代码更易懂；<br>
+3、捡垃圾式重构；<br>
+4、有计划的重构和见机行事的重构；<br>
+5、长期重构；<br>
+6、复审代码时重构；<br>
+7、怎么对经理说；<br>
+8、何时不应该重构。</p> <h2 id="重构得挑战"><a href="#重构得挑战" class="header-anchor">#</a> 重构得挑战</h2> <p>1、延缓新功能开发；<br>
+2、代码所有权；<br>
+3、分支；<br>
+4、测试；<br>
+5、遗留代码。</p> <h2 id="代码的怪味道"><a href="#代码的怪味道" class="header-anchor">#</a> 代码的怪味道</h2> <p>1、神秘命名；<br>
+2、重复带；<br>
+3、过长函数；<br>
+4、过长参数列表；<br>
+5、全局数据；<br>
+6、可变数据；<br>
+7、发散式变法；<br>
+8、霰弹式修改；<br>
+9、依恋情结；<br>
+10、数据泥团；<br>
+11、基本类型偏执；<br>
+12、重复的switch；<br>
+13、循环语句；<br>
+14、冗赘的元素；<br>
+15、夸夸其谈通用性；<br>
+16、临时字段；<br>
+17、过长的信息链；<br>
+18、中间人；<br>
+19、内幕交易；<br>
+20、过大的类；<br>
+21、异曲同工的类；<br>
+22、纯数据类；<br>
+23、被拒绝的馈赠；<br>
+24、注释。</p> <h2 id="重构手法"><a href="#重构手法" class="header-anchor">#</a> 重构手法</h2> <h3 id="提炼函数-extract-function"><a href="#提炼函数-extract-function" class="header-anchor">#</a> 提炼函数(Extract Function)</h3> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token keyword">function</span> <span class="token function">printOwing</span><span class="token punctuation">(</span><span class="token parameter">invoice</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printBanner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> outstanding <span class="token operator">=</span> <span class="token function">calculateOutstanding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// print details</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">name：</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>invoice<span class="token punctuation">.</span>customer<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">amount：</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>outstanding<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><p>=&gt;</p> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token keyword">function</span> <span class="token function">printOwing</span><span class="token punctuation">(</span><span class="token parameter">invoice</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printBanner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> outstanding <span class="token operator">=</span> <span class="token function">calculateOutstanding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printDetails</span><span class="token punctuation">(</span>outstanding<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">printDetails</span><span class="token punctuation">(</span><span class="token parameter">outstanding</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">name:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>invoice<span class="token punctuation">.</span>customer<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">amount:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>outstanding<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h4 id="动机"><a href="#动机" class="header-anchor">#</a> 动机</h4> <p>1、函数过长；<br>
+2、代码类似；<br>
+3、明确代码用意。</p> <h4 id="做法"><a href="#做法" class="header-anchor">#</a> 做法</h4> <p>1、创建一个新函数（以它“做什么”来命名，而不是以它“怎么做”命名）；<br>
+2、将待提炼的代码从源函数复制到新建的目标函数中；<br>
+3、仔细检查提炼出的代码，看看其中是否引用了作用域限于源函数、在提炼出的新函数中访问不到的变量。若是，以参数的形式将它们传递给新函数；<br>
+4、所有变量都处理完之后，编译；<br>
+5、在源函数中，将被提炼代码段替换为对目标函数的调用；<br>
+6、测试；<br>
+7、查看其他代码是否有与被提炼的代码段相同或相似之处。如果有，考虑使用<strong>以函数调用取代内联代码</strong>令其调用提炼出的新函数。</p> <h3 id="以函数调用取代内联代码-replace-inline-code-with-function-call"><a href="#以函数调用取代内联代码-replace-inline-code-with-function-call" class="header-anchor">#</a> 以函数调用取代内联代码(Replace Inline Code with Function Call)</h3> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token keyword">let</span> appliesToMass <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> s <span class="token keyword">of</span> states<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>s <span class="token operator">===</span> <span class="token string">&quot;MA&quot;</span><span class="token punctuation">)</span> appliesToMass <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><p>=&gt;</p> <div class="language-js extra-class"><pre class="language-js"><code>  appliesToMass <span class="token operator">=</span> status<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">&quot;MA&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="动机-2"><a href="#动机-2" class="header-anchor">#</a> 动机</h4> <p>1、善用函数可以将相关的行为打包起来；<br>
+2、配合一些库函数使用，会使本手法效果更佳。</p> <h4 id="做法-2"><a href="#做法-2" class="header-anchor">#</a> 做法</h4> <p>1、将内联代码替代为对一个既有函数的调用；<br>
+2、测试。</p> <h2 id="好句子"><a href="#好句子" class="header-anchor">#</a> 好句子</h2> <p>如果你要给程序添加一个特性，但发现代码因缺乏良好的结构而不易于进行更改，那就先重构那个程序，使其比较容易添加该特性，然后再添加该特性。</p> <p>重构前，先检查自己是否有一套可靠的测试集。这些测试必须有自我检验能力。</p> <p>重构技术就是以微小的步伐修改程序。如果你犯下错误，很容易便可发现它。</p> <p>傻瓜都能写出计算机可以理解的代码。唯有能写出人类容易理解的代码，才是优秀的程序员。</p> <p>编程时，需要遵循营地法则：保证你离开时的代码库一定比来时更健康。</p> <p>好代码的检验标准就是人们是否能轻而易举地修改它。</p> <p>重构得唯一目的就是让我们开发更快，用更少得工作量创造更大得价值。</p> <p>当你感觉需要要撰写注释时，请先尝试重构，试着让所有注释变得多余。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.9902a944.js" defer></script><script src="/assets/js/2.eab5a6f5.js" defer></script><script src="/assets/js/21.43cb69a6.js" defer></script>
+  </body>
+</html>
